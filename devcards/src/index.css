@@ -1,0 +1,60 @@
+:root{
+  --card-height : 200px;
+  --card-width: calc(var(--card-height) * 1.618);
+}
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  perspective: 1000px;
+  width: var(--card-width);
+  height: var(--card-height);
+  /* background-color: green; */
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+}
+
+.card-inner{
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+  border-radius: 10px;    
+  /* overflow: hidden;         */
+
+}
+
+.card-front, .card-back{
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  width: var(--card-width);
+  height: var(--card-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card-front{
+  background-color: lightblue;
+}
+
+.card-back{
+  transform: rotateY(180deg);
+  background-color: lightcoral;
+}
+
+.card.flipped .card-inner{
+  transform: rotateY(180deg);
+}
+
